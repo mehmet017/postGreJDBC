@@ -1,6 +1,8 @@
 package StudenManagementSystem;
+
 //2-id,name,lastname,city,age
 public class Student {
+
     private int id;
     private String name;
     private String lastname;

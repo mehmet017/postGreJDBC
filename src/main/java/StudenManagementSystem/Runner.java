@@ -23,8 +23,9 @@ public class Runner {
     public static void start(){
         Scanner inp=new Scanner(System.in);
         StudentService service=new StudentService();
-        //10-uygulama calistirildiginda tablo olusturulsun
+        //10-uygulama çalıştırıldığında tablo oluşturulsun
         service.createTable();
+
         int select;
         do {
             System.out.println("=================================");
@@ -37,13 +38,14 @@ public class Runner {
             System.out.println("0-ÇIKIŞ");
             System.out.println("İşlem seçiniz: ");
             select= inp.nextInt();
+            inp.nextLine();
             int id;
             switch (select){
                 case 1:
-                    //save
+                    service.saveStudent();
                     break;
                 case 2:
-                    //listele
+                    service.getAllStudents();
                     break;
                 case 3:
                     id=getId(inp);
@@ -51,7 +53,7 @@ public class Runner {
                     break;
                 case 4:
                     id=getId(inp);
-                    //öğr silme
+                    service.deleteStudent(id);
                     break;
                 case 5:
                     id=getId(inp);
@@ -64,14 +66,14 @@ public class Runner {
                     System.out.println("Hatalı giriş!!!");
                     break;
             }
+
         }while (select!=0);
 
     }
     private static int getId(Scanner inp){
         System.out.println("Öğrenci id: ");
         int id=inp.nextInt();
+        inp.nextLine();
         return id;
     }
 }
-
-
